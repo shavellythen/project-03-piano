@@ -410,12 +410,12 @@ border-radius: 12px;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover effect for musical notes */
+
 .musical-note:hover {
     transform: scale(1.1);
 }
 
-/* Optional: Custom mouse cursor for musical notes */
+
 .musical-note {
     cursor: default;
 }
