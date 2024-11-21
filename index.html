@@ -38,27 +38,35 @@
 
             <div class="purple-bg">
             <div class="musical-container">
-                <div class="musical-sheet data-medium">
+                <div class="musical-sheet">
+                        <!-- Animated circles will be added here dynamically -->
+                        <div class="falling-circle data-medium" style="animation-delay: 0s; background-color: #ff6347;"></div>
+                        <div class="falling-circle data-medium" style="animation-delay: 1s; background-color: #ffa500;"></div>
+                        <div class="falling-circle data-medium" style="animation-delay: 2s; background-color: #ffff00;"></div>
+                        <div class="falling-circle data-medium" style="animation-delay: 3s; background-color: #32cd32;"></div>
+                        <!-- stale circles
                     <div class="musical-note" style="top: 30px; left: 50px; background-color: #ff6347;"></div>
                     <div class="musical-note" style="top: 80px; left: 150px; background-color: #ffa500;"></div>
                     <div class="musical-note" style="top: 130px; left: 250px; background-color: #ffff00;"></div>
+                        -->
                 </div>
             </div>
 
             <div class="nowplaying"></div>
             <div class="containter">
                 <div class="keys">
-                    <div data-key="65" class="key" data-note="C4" aria-label="C4 note played by pressing A">
-                        <span class="hints" data-easy="A" data-medium="color" data-hard="C"></span>
-                    </div>
+    <div data-key="65" class="key" data-note="C4" aria-label="C4 note played by pressing A">
+        <span class="hints" data-easy="A" data-medium="key-circle hidden" data-hard="C"></span>
+        <div class="key-circle hidden"></div> <!-- The key circle element to toggle visibility -->
+    </div>
                     <div data-key="87" class="key sharp" data-note="C#" aria-label="C4# note played by pressing W">
-                        <span class="hints-sharp" data-easy="W" data-medium="color" data-hard="C#"></span>
+                        <span class="hints-sharp" data-easy="W" data-medium="key-circle-2" data-hard="C#"></span>
                     </div>
                     <div data-key="83" class="key" data-note="D" aria-label="D4 note played by pressing S">
-                        <span class="hints" data-easy="S" data-medium="color" data-hard="D"></span>
+                        <span class="hints" data-easy="S" data-medium="key-circle-3" data-hard="D"></span>
                     </div>
                     <div data-key="69" class="key sharp" data-note="D#" aria-label="D4# note played by pressing E">
-                        <span class="hints-sharp" data-easy="E" data-medium="color" data-hard="D#"></span>
+                        <span class="hints-sharp" data-easy="E" data-medium="key-circle-4" data-hard="D#"></span>
                     </div>
                     <div data-key="68" class="key" data-note="E" aria-label="E4 note played by pressing D">
                         <span class="hints" data-easy="D" data-medium="color" data-hard="E"></span>

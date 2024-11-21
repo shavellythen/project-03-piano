@@ -11,28 +11,33 @@ body {
 
 header {
     display: flex;
+    margin-bottom: 10px;
     justify-content: center;
+    /* Horizontally centers the content */
     align-items: center;
+    /* Vertically centers the content */
     text-align: center;
-    position: relative;
-    /* Ensures z-index works */
-    z-index: 11;
-    /* Higher than .elementor-shape */
+    /* Ensures text inside header is centered */
+    position: absolute;
+    top: 0;
+    /* Keeps the header at the top */
+    left: 50%;
+    /* Moves the header horizontally to the center */
+    transform: translateX(-50%);
+    /* Offsets the header to the left by half its width */
+    width: 100%;
+    /* Ensures the header spans the full width */
+    z-index: 10;
+    /* Places it above the shape */
 }
 
 h1 {
-    margin-bottom: 0px;
-    margin-top: 10px;
     font-size: 6rem;
-    /* 96px */
     font-family: "DynaPuff", "Roboto", sans-serif;
-    /* Ensure you are using DynaPuff */
-    font-weight: 700;
-    /* Bold weight */
-    color: #fb9f8d;
+    font-weight: 600;
+    color: #fcf5e7;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
-    /* Set the width (from 75 to 100) */
 }
 
 h1 .two {
@@ -66,29 +71,19 @@ p {
 .row {
     display: flex;
     justify-content: center;
-    /* Centers the button horizontally */
     align-items: center;
-    /* Centers the button vertically within the row */
 }
 
 .difficulty-buttons {
     display: flex;
     flex-direction: column;
-    /* Stack buttons vertically */
     align-items: flex-start;
-    /* Align items to the start (left) of the container */
     position: fixed;
-    /* Position buttons fixed to the screen */
     top: 50%;
-    /* Center vertically on the screen */
     right: 30px;
-    /* Move buttons 30px away from the right edge */
     transform: translateY(-50%);
-    /* Adjust to truly center vertically */
     gap: 10px;
-    /* Space between the buttons */
     z-index: 9999;
-    /* Ensure buttons stay on top of other content */
 }
 
 .difficulty-btn {
@@ -103,9 +98,9 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
     width: 100%;
-    /* Buttons take full width of container */
     max-width: 150px;
-    /* Maximum width for each button */
+    position: relative;
+    /* Ensure the tooltip is positioned relative to this button */
 }
 
 .difficulty-btn.selected {
@@ -129,48 +124,50 @@ p {
 .difficulty-btn::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: 100%;
-    left: 50%;
+    bottom: 0;
+    /* Aligns it with the bottom of the button */
+    left: -100%;
+    /* Positions the tooltip to the left of the button */
     transform: translateX(-50%);
     background-color: #5D0045;
     color: #fff;
-    padding: 5px;
+    padding: 8px 12px;
+    /* Adjust padding for a wider box */
     border-radius: 5px;
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
     transition: opacity 0.3s ease;
-    max-width: 400px;
+    max-width: 500px;
+    /* Set the max-width to your desired size */
     white-space: nowrap;
     font-size: 14px;
+    text-align: center;
+    /* Center align text in the tooltip */
 }
 
-/* Tooltip appears on hover */
 .difficulty-btn:hover::after {
     opacity: 1;
     visibility: visible;
 }
 
-/* Background Cloud Shapes */
 .elementor-shape {
     width: 100%;
     height: auto;
     position: relative;
 }
 
-/* SVG inside the shapes */
 .elementor-shape svg {
     width: 100%;
     height: 100%;
 }
 
-/* Top shape container */
 .elementor-shape-top {
     width: 100%;
     height: auto;
     background-color: #F8CFC7;
     position: relative;
-    z-index: 10;
+    z-index: 1;
 }
 
 .elementor-shape-bottom {
@@ -192,23 +189,16 @@ p {
     fill: #F8CFC7;
 }
 
-/* Yellow fill for paths in shapes */
 .elementor-shape-fill-yellow {
     fill: #FBF6E6;
-
 }
 
 .container {
     display: flex;
-    /* Use flexbox for easy centering */
     justify-content: center;
-    /* Horizontally center */
     align-items: center;
-    /* Vertically center */
     height: 100vh;
-    /* Take up the full height of the viewport */
 }
-
 
 .keys {
     display: block;
@@ -218,18 +208,14 @@ p {
     position: relative;
     margin: 0 auto;
     cursor: none;
-    /* Add a smooth transition for better visual feedback */
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
-
 
 .nowplaying {
     display: none;
     font-size: 120px;
     line-height: 1;
     color: #5D0045;
-    /* Lighter blue from new palette */
     text-shadow: 0 0 5rem #5D0045;
     transition: all .07s ease;
     min-height: 120px;
@@ -238,7 +224,6 @@ p {
 .pink-bg {
     background-color: #F8CFC7;
     width: 100%;
-    /* Full width */
     padding: 0;
     position: relative;
 }
@@ -255,7 +240,6 @@ border-radius: 12px;
 .keys {
     position: relative;
     z-index: 1;
-    /* Ensure the content sits above the background */
 }
 
 .key {
@@ -284,17 +268,9 @@ border-radius: 12px;
     z-index: 3;
 }
 
-
-
-
-.key[data-key="65"] {
-}
-
 .key[data-key="69"] {
     left: 17%;
 }
-
-
 
 .key[data-key="79"] {
     left: 77%;
@@ -338,7 +314,6 @@ border-radius: 12px;
 }
 .hints-sharp.hidden {
     display: none;
-    /* Fully hides the container */
 }
 
 .hints {
@@ -354,10 +329,8 @@ border-radius: 12px;
 
 .hints.hidden {
     display: none;
-    /* Fully hides the container */
 }
 
-/* On large screens, move the tooltip to the left */
 @media (min-width: 768px) {
     .difficulty-btn::after {
         bottom: 50%;
@@ -365,34 +338,25 @@ border-radius: 12px;
         right: 100%;
         transform: translateY(-50%);
         max-width: 200px;
-        /* Optional: limit the width of the tooltip */
         white-space: normal;
-        /* Allow the tooltip to wrap if needed */
     }
 }
 .musical-container {
     background-color: #5d004642;
-    /* Light yellow background */
     width: 100%;
-    /* Ensure it doesn't exceed the same width as .keys */
     position: relative;
     border-radius: 12px;
-    /* Rounded corners for a modern look */
     box-shadow: 0 4px 8px #5d004624;
-    /* Soft shadow to give depth */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    /* This ensures it's centered horizontally */
 }
 
-/* Musical sheet area */
 .musical-sheet {
     position: relative;
     width: 100%;
-    height: 150px;
-    padding: 20px;
+    height: 300px;
     border-radius: 10px;
     display: flex;
     justify-content: flex-start;
@@ -400,22 +364,47 @@ border-radius: 12px;
     overflow: hidden;
 }
 
-/* Musical notes represented as circles */
-.musical-note {
+.falling-circle {
     position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall 4s infinite ease-in-out;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+        opacity: 1;
+    }
+
+    50% {
+        top: 50%;
+        opacity: 0.7;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.key-circle {
+    display: block;
+    /* Initially hidden */
+    position: absolute;
+    padding-left: 7px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: #ff6347;
     transition: transform 0.3s ease-in-out;
+    z-index: 10;
+    /* Ensure it's on top */
 }
 
-
-.musical-note:hover {
-    transform: scale(1.1);
-}
-
-
-.musical-note {
-    cursor: default;
+/* When medium difficulty is selected, show the key circle */
+.key-circle.hidden {
+    display: none;
 }
