@@ -1,29 +1,27 @@
-// Select all keys, the note display, hints, and add a toggle button
 const keys = document.querySelectorAll(".key"),
   noteDisplay = document.querySelector(".nowplaying"),
   hints = document.querySelectorAll(".hints"),
   hintSharp = document.querySelectorAll(".hints-sharp"); 
 
-// Get all difficulty buttons
 const difficultyButtons = document.querySelectorAll('.difficulty-btn');
 
-// Get all hint elements (those with the .hints and .hints-sharp classes)
+
 const hintElements = document.querySelectorAll(".hints, .hints-sharp"); 
 
-// Function to change hints based on the button clicked
+
 function changeHints(difficulty) {
     hintElements.forEach(hint => {
         if (difficulty === 'easy') {
-            hint.textContent = hint.getAttribute('data-easy'); // Example: 'data-easy' attribute holds the easy hints
+            hint.textContent = hint.getAttribute('data-easy'); 
         } else if (difficulty === 'medium') {
-            hint.textContent = hint.getAttribute('data-medium'); // Example: 'data-medium' holds the medium hints
+            hint.textContent = hint.getAttribute('data-medium'); 
         } else if (difficulty === 'hard') {
-            hint.textContent = hint.getAttribute('data-hard'); // Example: 'data-hard' holds the hard hints
+            hint.textContent = hint.getAttribute('data-hard'); 
         }
     });
 }
 
-// Function to toggle the visibility of the hints
+
 function toggleHintsVisibility(visible) {
     hintElements.forEach(hint => {
         hint.style.display = visible ? "block" : "none";
