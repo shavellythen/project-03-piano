@@ -105,18 +105,16 @@ let lastKeyPressed = null;
 let colorIndex = 0; 
 
 function playNote(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`),
-        key = document.querySelector(`.key[data-key="${e.keyCode}"]`),
-        fallingColor = document.querySelector(`.falling-color[data-key="${e.keyCode}"]`);
+    e.preventDefault();  // Prevent default key action (like scrolling or focusing)
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (!audio) return;  // Don't do anything if there's no audio for the key
 
-    if (!key) return;
-
-    const keyNote = key.getAttribute("data-note");
     key.classList.add("playing");
-    noteDisplay.innerHTML = keyNote;
-    audio.currentTime = 0;
-    audio.play();
+    audio.currentTime = 0;  // Rewind to start
+    audio.play();  // Play the audio
 }
+
 
 // Remove "playing" class after transition
 function removeTransition(e) {
