@@ -19,7 +19,7 @@ header {
     text-align: center;
     /* Ensures text inside header is centered */
     position: absolute;
-    top: 0;
+    top: -50px;
     /* Keeps the header at the top */
     left: 50%;
     /* Moves the header horizontally to the center */
@@ -35,7 +35,7 @@ h1 {
     font-size: 6rem;
     font-family: "DynaPuff", "Roboto", sans-serif;
     font-weight: 600;
-    color: #fcf5e7;
+    color: #fef9ef;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
 }
@@ -204,7 +204,7 @@ p {
     display: block;
     width: 100%;
     height: 350px;
-    max-width: 880px;
+    max-width: 1000px;
     position: relative;
     margin: 0 auto;
     cursor: none;
@@ -228,14 +228,6 @@ p {
     position: relative;
 }
 
-.purple-bg {
-    background-color: #5D0045;
-    max-width: 850px;
-    margin: 0 auto;
-    position: relative;
-border-radius: 12px;
-}
-
 .musical-container,
 .keys {
     position: relative;
@@ -247,7 +239,7 @@ border-radius: 12px;
     border: 3px solid #5D0045;
     border-radius: .5rem;
     transition: all .07s ease;
-    display: block;
+    display: inline-block;
     box-sizing: border-box;
     z-index: 2;
     background-color: #FBF6E6;
@@ -341,70 +333,138 @@ border-radius: 12px;
         white-space: normal;
     }
 }
-.musical-container {
-    background-color: #5d004642;
-    width: 100%;
+.purple-bg {
+    background-color: #5D0045;
+    max-width: 1000px;
+    height: 150px;
+    margin: 0 auto;
     position: relative;
     border-radius: 12px;
-    box-shadow: 0 4px 8px #5d004624;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    padding: 20px;
+    /* Added padding to create space between the purple background and the staff */
+}
+
+.musical-container {
+    display: none;
+}
+
+/* Optionally, you can add a class to reveal the elements for 'medium' difficulty */
+.musical-container.show-medium * {
+    display: block;
+        background-color: #5d004642;
+            width: 100%;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px #5d004624;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            margin: 0 auto;
+            z-index: 4;
 }
 
 .musical-sheet {
     position: relative;
     width: 100%;
     height: 300px;
-    border-radius: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    z-index: 4;
 }
 
-.falling-circle {
+.staff {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute lines evenly */
+    padding: 20px;
+    align-items: center;
+    z-index: 4;
+}
+
+.staff img {
+position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 90px;
+    height: 250px;
+    z-index: 10;
+    opacity: 0.8;
+    padding-right: 20px;
+}
+
+/* Musical staff lines */
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    opacity: 0.6;
+    z-index: 4;
+    margin: 5px 0;
+    /* Added spacing between lines */
+}
+
+/* Notes styling */
+.notes {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    opacity: 0;
-    animation: fall 4s infinite ease-in-out;
+    display: flex;
+    flex-direction: row;
+    top: 20px;
+    opacity: 1;
+    z-index: 7;
+    transition: all 0.3s ease;
 }
 
-@keyframes fall {
-    0% {
-        top: -50px;
-        opacity: 1;
-    }
-
-    50% {
-        top: 50%;
-        opacity: 0.7;
-    }
-
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
-}
-
-.key-circle {
-    display: block;
-    /* Initially hidden */
+.note {
     position: absolute;
-    padding-left: 7px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #ff6347;
-    transition: transform 0.3s ease-in-out;
-    z-index: 10;
-    /* Ensure it's on top */
+    opacity: 1;
+    z-index: 7;
+    transition: all 0.3s ease;
+    /* Smooth transition for note movement */
 }
 
-/* When medium difficulty is selected, show the key circle */
-.key-circle.hidden {
-    display: none;
+/* Color-coded notes */
+.note.green {
+    background-color: #c5ba2f;
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(197, 186, 47, 0.6);
+    /* Subtle glow effect */
+}
+
+.note.blue {
+    background-color: #b8e2e8;
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(184, 226, 232, 0.6);
+    /* Subtle glow effect */
+}
+
+.note.yellow {
+    background-color: #f7d170;
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(247, 209, 112, 0.6);
+    /* Subtle glow effect */
+}
+
+.note.red {
+    background-color: #ff5834;
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(255, 88, 52, 0.6);
+    /* Subtle glow effect */
+}
+
+/* Adding hover effect for notes */
+.note:hover {
+    transform: scale(1.2);
+    /* Slight zoom on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow on hover */
 }
