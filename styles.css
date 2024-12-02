@@ -13,22 +13,14 @@ header {
     display: flex;
     margin-bottom: 10px;
     justify-content: center;
-    /* Horizontally centers the content */
     align-items: center;
-    /* Vertically centers the content */
     text-align: center;
-    /* Ensures text inside header is centered */
     position: absolute;
     top: -50px;
-    /* Keeps the header at the top */
     left: 50%;
-    /* Moves the header horizontally to the center */
     transform: translateX(-50%);
-    /* Offsets the header to the left by half its width */
     width: 100%;
-    /* Ensures the header spans the full width */
     z-index: 10;
-    /* Places it above the shape */
 }
 
 h1 {
@@ -56,7 +48,6 @@ h3 {
 
 h4 {
     font-size: 1.5rem;
-
 }
 
 h5 {
@@ -100,7 +91,6 @@ p {
     width: 100%;
     max-width: 150px;
     position: relative;
-    /* Ensure the tooltip is positioned relative to this button */
 }
 
 .difficulty-btn.selected {
@@ -125,25 +115,20 @@ p {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 0;
-    /* Aligns it with the bottom of the button */
     left: -100%;
-    /* Positions the tooltip to the left of the button */
     transform: translateX(-50%);
     background-color: #5D0045;
     color: #fff;
     padding: 8px 12px;
-    /* Adjust padding for a wider box */
     border-radius: 5px;
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
     transition: opacity 0.3s ease;
     max-width: 500px;
-    /* Set the max-width to your desired size */
     white-space: nowrap;
     font-size: 14px;
     text-align: center;
-    /* Center align text in the tooltip */
 }
 
 .difficulty-btn:hover::after {
@@ -304,6 +289,7 @@ p {
     font-size: 1.2rem;
     color: #ffffff;
 }
+
 .hints-sharp.hidden {
     display: none;
 }
@@ -333,6 +319,7 @@ p {
         white-space: normal;
     }
 }
+
 .purple-bg {
     background-color: #5D0045;
     max-width: 1000px;
@@ -341,27 +328,25 @@ p {
     position: relative;
     border-radius: 12px;
     padding: 20px;
-    /* Added padding to create space between the purple background and the staff */
 }
 
 .musical-container {
     display: none;
 }
 
-/* Optionally, you can add a class to reveal the elements for 'medium' difficulty */
 .musical-container.show-medium * {
     display: block;
-        background-color: #5d004642;
-            width: 100%;
-            position: relative;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px #5d004624;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: 20px;
-            margin: 0 auto;
-            z-index: 4;
+    background-color: #5d004642;
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px #5d004624;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    z-index: 4;
 }
 
 .musical-sheet {
@@ -382,14 +367,13 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Distribute lines evenly */
     padding: 20px;
     align-items: center;
     z-index: 4;
 }
 
 .staff img {
-position: absolute;
+    position: absolute;
     top: 20px;
     left: 10px;
     width: 90px;
@@ -399,7 +383,6 @@ position: absolute;
     padding-right: 20px;
 }
 
-/* Musical staff lines */
 .line {
     width: 100%;
     height: 2px;
@@ -407,10 +390,8 @@ position: absolute;
     opacity: 0.6;
     z-index: 4;
     margin: 5px 0;
-    /* Added spacing between lines */
 }
 
-/* Notes styling */
 .notes {
     position: absolute;
     display: flex;
@@ -429,42 +410,33 @@ position: absolute;
     opacity: 1;
     z-index: 7;
     transition: all 0.3s ease;
-    /* Smooth transition for note movement */
 }
 
-/* Color-coded notes */
 .note.green {
     background-color: #c5ba2f;
     opacity: 1;
     box-shadow: 0 0 5px rgba(197, 186, 47, 0.6);
-    /* Subtle glow effect */
 }
 
 .note.blue {
     background-color: #b8e2e8;
     opacity: 1;
     box-shadow: 0 0 5px rgba(184, 226, 232, 0.6);
-    /* Subtle glow effect */
 }
 
 .note.yellow {
     background-color: #f7d170;
     opacity: 1;
     box-shadow: 0 0 5px rgba(247, 209, 112, 0.6);
-    /* Subtle glow effect */
 }
 
 .note.red {
     background-color: #ff5834;
     opacity: 1;
     box-shadow: 0 0 5px rgba(255, 88, 52, 0.6);
-    /* Subtle glow effect */
 }
 
-/* Adding hover effect for notes */
 .note:hover {
     transform: scale(1.2);
-    /* Slight zoom on hover */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    /* Stronger shadow on hover */
 }
