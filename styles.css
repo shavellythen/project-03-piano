@@ -10,13 +10,13 @@ body {
 }
 
 header {
-    display: flex;
+display: flex;
     margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: absolute;
-    top: -50px;
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -24,12 +24,14 @@ header {
 }
 
 h1 {
-    font-size: 6rem;
-    font-family: "DynaPuff", "Roboto", sans-serif;
-    font-weight: 600;
-    color: #fef9ef;
-    font-optical-sizing: auto;
-    font-variation-settings: "wdth" 100;
+    font-size: 5.5rem;
+        font-family: "DynaPuff", "Roboto", sans-serif;
+        font-weight: 600;
+        color: #fff;
+        font-optical-sizing: auto;
+        font-variation-settings: "wdth" 100;
+        text-shadow: 0 4px 8px rgba(93, 0, 69, 0.3);
+        letter-spacing: -1px;
 }
 
 h1 .two {
